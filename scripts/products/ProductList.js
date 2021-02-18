@@ -10,7 +10,7 @@ let bakeryCategories = []
 
 export const ProductList = () => {
   getProducts()
-    .then(getCategories)
+    .then(getCategories())
     .then(() => {
       bakeryProducts = useProducts()
       bakeryCategories = useCategories()
@@ -25,3 +25,5 @@ const render = () => {
     return Product(product, productCategory)
   }).join("")
 }
+
+// eventHub.addEventListener()

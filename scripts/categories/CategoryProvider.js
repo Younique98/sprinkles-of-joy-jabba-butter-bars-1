@@ -1,15 +1,16 @@
 import { bakeryAPI } from "../Settings.js"
 
 let categories = []
-
+console.log(categories)
 export const useCategories = () => {
-  categories.slice()
+  
+  return categories.slice()
 }
 
 export const getCategories = () => {
+    
   return fetch(`${bakeryAPI.baseURL}/categories`)
     .then(response => response.json())
-    .then(categoriesArray => {
-      categories = categoriesArray
-    })
+    .then(categoriesArray => categories = categoriesArray)
+  
 }
