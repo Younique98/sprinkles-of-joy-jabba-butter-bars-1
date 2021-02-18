@@ -12,7 +12,7 @@ export const CategorySelect = () => {
   
   .then(() => {
     categories = useCategories()
-    debugger
+    
     render(categories)
     
   })
