@@ -1,7 +1,7 @@
 import { bakeryAPI } from "../Settings.js"
 
 let categories = []
-console.log(categories)
+
 export const useCategories = () => {
   
   return categories.slice()
