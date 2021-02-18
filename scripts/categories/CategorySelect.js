@@ -5,11 +5,14 @@ const contentTarget = document.querySelector(".filter__category")
 
 let categories = []
 
+
 export const CategorySelect = () => {
-  // debugger
+  
   getCategories()
   
   .then(() => {
+    categories = useCategories()
+    debugger
     render(categories)
     
   })
@@ -18,19 +21,20 @@ export const CategorySelect = () => {
 }
 
 
-
-const render = () => {
+const render = (categoriesCollection) => {
   
   contentTarget.innerHTML = `
       <select class="dropdown" id="categorySelect">
           <option value="0">All baked goods...</option>
-          ${categories.map(category => `<option value="${category.id}">${category.name}</option>`).join("")
+          ${categoriesCollection.map(category => `<option value="${category.id}">${category.name}</option>`).join("")
         }
       </select>
 
   `
   
+  
 }
+
 
 
 
