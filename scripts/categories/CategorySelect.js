@@ -39,12 +39,20 @@ const render = (categoriesCollection) => {
 
 
 eventHub.addEventListener("change", changeEvent => {
+  
   if (changeEvent.target.id === "categorySelect") {
+    const selectedCategory = changeEvent.target.value
+
+    
+
     const categoryCustomEvent = new CustomEvent("categorySelected", {
       detail: {
-        selectedCategory: changeEvent.target.value
+        selectedCategory: parseInt(selectedCategory)
       }
     })
     eventHub.dispatchEvent(categoryCustomEvent)
+    
   }
 })
+
+eventHub.addEventListener("categorySelected", categoryChosenEvent => document.querySelector("#categorySelect").value)

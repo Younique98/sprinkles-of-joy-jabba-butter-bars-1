@@ -1,6 +1,6 @@
 const eventHub = document.querySelector("#container")
 
-export const Product = (product, category) => {
+export const Product = (product) => {
     return `
       <section class="baked_good">
           <header class="baked_good__header">
@@ -9,7 +9,7 @@ export const Product = (product, category) => {
           </header>
           <div>
               <button id="addProduct">Add to Cart</button>
-              <p>${product.description} [${category.name}]</p>
+              <p>${product.description}</p>
           </div>
       </section>
   `
