@@ -10,7 +10,7 @@ let bakeryCategories = []
 let category = []
 
 export const ProductList = () => {
-  debugger
+  
   getProducts()
     
   .then(() => {
