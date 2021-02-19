@@ -10,7 +10,7 @@ let bakeryCategories = []
 let category = []
 
 export const ProductList = () => {
-  // debugger
+  
   getProducts()
     
   .then(() => {
@@ -26,9 +26,11 @@ const render = () => {
     const productCategory = bakeryCategories.find(category => category.id === product.categoryId)
 
     return Product(product, productCategory) 
-    debugger
+    
   }).join("")
 }
+
+
 
 eventHub.addEventListener("categorySelected", event => {
   const categoryName = event.detail.selectedCategory
@@ -56,8 +58,8 @@ eventHub.addEventListener("categorySelected", event => {
       }
     }
   )
-  render(filteredProductsArray)
-  // debugger
+  renderToDom(filteredProductsArray)
+  
   
 })
 
@@ -70,10 +72,25 @@ eventHub.addEventListener("categoryChosen", categoryChosenEvent => {
       return categoryObj.id === parseInt(categoryChosenEvent.detail.selectedCategory)
     })
     console.log(chosenCategoryObject.name)
-    debugger
+    
     const productsArray = useProducts()
     const filteredCategorysArray = productsArray.filter(productObj => productObj.categoryId === chosenCategoryObject.name)
     render(filteredCategorysArray)
    
   }
 })
+
+
+const renderToDom = (productCollection) => {
+  let productHTMLRepresentations = ""
+
+  for (const product of productCollection) {
+      productHTMLRepresentations += Product(product)
+  }
+
+  contentTarget.innerHTML = `
+<h2>Products</h2>
+<section class="productsList">
+${productHTMLRepresentations}
+</section>`
+}

@@ -51,7 +51,8 @@ eventHub.addEventListener("change", changeEvent => {
       }
     })
     eventHub.dispatchEvent(categoryCustomEvent)
+    
   }
 })
 
-eventHub.addEventListener("categorySelected", categoryChosenEvent => document.querySelector("#categorySelect").value = 0)
+eventHub.addEventListener("categorySelected", categoryChosenEvent => document.querySelector("#categorySelect").value)
