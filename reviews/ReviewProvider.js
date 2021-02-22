@@ -6,7 +6,7 @@ let reviews = []
 
 export const saveReview = review => {
     
-    return fetch(`${bakeryAPI.baseURL}/reviews`, {
+    return fetch(`${bakeryAPI.baseURL}/productReviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -18,7 +18,7 @@ export const saveReview = review => {
   }
   
   export const deleteReview = reviewId => {
-    return fetch(`${bakeryAPI.baseURL}/reviews`, {
+    return fetch(`${bakeryAPI.baseURL}/productReviews`, {
       method: "DELETE"
     })
       .then(getReviews)
@@ -26,7 +26,7 @@ export const saveReview = review => {
   }
   
   export const getReviews = () => {
-    return fetch(`${bakeryAPI.baseURL}/reviews`)
+    return fetch(`${bakeryAPI.baseURL}/productReviews`)
       .then(response => response.json())
       .then(parsedReviews => {
         reviews = parsedReviews
