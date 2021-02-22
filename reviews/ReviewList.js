@@ -1,5 +1,5 @@
 import { getReviews, useReviews } from "./ReviewProvider.js";
-import { ReviewFormRender } from "./Review.js"
+import { ReviewHTMLConverter } from "./Review.js"
 import {getProducts, useProducts } from "../scripts/products/ProductProvider.js";
 
 // Query the DOM for the element that your  will be added to 
@@ -26,25 +26,28 @@ export const ReviewList = () => {
   .then(getProducts)
     .then(() => {
       allReviews = useReviews()
+      console.log(allReviews)
       allProducts = useProducts()
+      console.log(allProducts)
       render()
       
     })
 }
 
 const render = () => {
-  debugger
+  
   const allReviewsConvertedToStrings = allReviews.map(reviewObject => {
-    const relatedProductObject = allProducts.find(Product => Product.id === reviewObject.ProductId)
-    return ReviewFormRender(reviewObject, relatedProductObject)
+    const relatedProductObject = allProducts.find(product => product.id === reviewObject.productId)
+    return ReviewHTMLConverter(reviewObject, relatedProductObject)
    
   }).join("")
 
   contentTarget.innerHTML = `
     <h3>Product Reviews</h3>
-    <section class="ProductsList">
+    <section class="productsList">
     ${allReviewsConvertedToStrings}
     </section>
   `
-  //debugger
+  
+  debugger
 }
