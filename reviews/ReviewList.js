@@ -2,7 +2,7 @@ import { getReviews, useReviews } from "./ReviewProvider.js";
 import { ReviewFormRender } from "./Review.js"
 import {getProducts, useProducts } from "../scripts/products/ProductProvider.js";
 
-// Query the DOM for the element that your Reviews will be added to 
+// Query the DOM for the element that your  will be added to 
 const contentTarget = document.querySelector(".userReviews")
 // Define ye olde Evente Hubbe
 const eventHub = document.querySelector("#container")
@@ -33,9 +33,10 @@ export const ReviewList = () => {
 }
 
 const render = () => {
-  const allReviewsConvertedToStrings = allReviews.map(productObject => {
-    const relatedProductObject = allProducts.find(Product => Product.id === productObject.ProductId)
-    return ReviewFormRender(productObject, relatedProductObject)
+  debugger
+  const allReviewsConvertedToStrings = allReviews.map(reviewObject => {
+    const relatedProductObject = allProducts.find(Product => Product.id === reviewObject.ProductId)
+    return ReviewFormRender(reviewObject, relatedProductObject)
    
   }).join("")
 
@@ -45,5 +46,5 @@ const render = () => {
     ${allReviewsConvertedToStrings}
     </section>
   `
-  debugger
+  //debugger
 }
