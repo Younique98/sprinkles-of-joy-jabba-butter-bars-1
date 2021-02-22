@@ -33,18 +33,18 @@ export const ReviewList = () => {
 }
 
 const render = () => {
-  debugger
+  
   const allReviewsConvertedToStrings = allReviews.map(reviewObject => {
-    const relatedProductObject = allProducts.find(Product => Product.id === reviewObject.ProductId)
+    const relatedProductObject = allProducts.find(product => product.id === reviewObject.ProductId)
     return ReviewFormRender(reviewObject, relatedProductObject)
    
   }).join("")
 
   contentTarget.innerHTML = `
     <h3>Product Reviews</h3>
-    <section class="ProductsList">
+    <section class="productsList">
     ${allReviewsConvertedToStrings}
     </section>
   `
-  //debugger
+  
 }

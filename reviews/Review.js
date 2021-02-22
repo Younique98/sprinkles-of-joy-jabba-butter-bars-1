@@ -1,4 +1,5 @@
 import { authHelper } from "../scripts/auth/authHelper.js"
+import { deleteReview } from "../reviews/ReviewProvider.js"
 
 
 const eventHub = document.querySelector("#container")
@@ -26,6 +27,17 @@ export const ReviewFormRender = () => {
   }
 }
 
+export const ReviewHTMLConverter = (reviewObject, productObject) => {
+  return `
+  <section class="reviewed">
+  <div class="reviewed__text">${reviewObject.text}</div>
+  <div class="reviewed__rating">${reviewObject.rating}</div>
+  <div class="reviewed__productId">${productObject.productId}</div>
+  <button id="deleteReview--${reviewObject.id}">Delete</button>
+  </section>
+  `
+}
+
 eventHub.addEventListener("click", clickEvent => {
     // debugger
     if (clickEvent.target.id.startsWith("deleteReview--")) {
@@ -35,6 +47,6 @@ eventHub.addEventListener("click", clickEvent => {
           Invoke the function that performs the delete operation.
       */
       deleteReview(id)
-      // debugger
+     
     }
   })
