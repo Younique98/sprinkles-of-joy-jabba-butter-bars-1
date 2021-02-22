@@ -26,9 +26,9 @@ export const ReviewList = () => {
   .then(getProducts)
     .then(() => {
       allReviews = useReviews()
-      console.log(allReviews)
+      
       allProducts = useProducts()
-      console.log(allProducts)
+      
       render()
       
     })
@@ -48,6 +48,4 @@ const render = () => {
     ${allReviewsConvertedToStrings}
     </section>
   `
-  
-  debugger
 }

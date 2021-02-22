@@ -28,11 +28,13 @@ export const ReviewFormRender = () => {
 }
 
 export const ReviewHTMLConverter = (reviewObject, productObject) => {
+// debugger
+// console.log(productObject)
   return `
   <section class="reviewed">
   <div class="reviewed__text">${reviewObject.text}</div>
   <div class="reviewed__rating">${reviewObject.rating}</div>
-  <div class="reviewed__productId">${productObject}</div>
+  <div class="reviewed__productId">${productObject.name}</div>
   <button id="deleteReview--${reviewObject.id}">Delete</button>
   </section>
   `
