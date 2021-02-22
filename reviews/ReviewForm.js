@@ -9,12 +9,12 @@ export const reviewForm = () => {
         .then(() => {
             const arrayOfProducts = useProducts()
             render(arrayOfProducts)
-            debugger
+            
         })
 }
 
 const render = (productsArray) => {
-    // debugger
+    
     contentTarget.innerHTML = `
     <h2>reviews</h2>
     <form action="" class="reviewForm">
