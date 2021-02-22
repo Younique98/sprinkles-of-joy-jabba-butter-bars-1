@@ -14,7 +14,7 @@ export const reviewForm = () => {
 }
 
 const render = (productsArray) => {
-    // debugger
+    
     contentTarget.innerHTML = `
     <h2>Please leave a review</h2>
     <form action="" class="reviewForm">
