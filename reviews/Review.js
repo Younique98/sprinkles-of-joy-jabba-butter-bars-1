@@ -32,10 +32,11 @@ export const ReviewHTMLConverter = (reviewObject, productObject) => {
   <section class="reviewed">
   <div class="reviewed__text">${reviewObject.text}</div>
   <div class="reviewed__rating">${reviewObject.rating}</div>
-  <div class="reviewed__productId">${productObject.productId}</div>
+  <div class="reviewed__productId">${productObject}</div>
   <button id="deleteReview--${reviewObject.id}">Delete</button>
   </section>
   `
+  
 }
 
 eventHub.addEventListener("click", clickEvent => {
