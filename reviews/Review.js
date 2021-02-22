@@ -28,8 +28,8 @@ export const ReviewFormRender = () => {
 }
 
 export const ReviewHTMLConverter = (reviewObject, productObject) => {
-debugger
-console.log(productObject)
+// debugger
+// console.log(productObject)
   return `
   <section class="reviewed">
   <div class="reviewed__text">${reviewObject.text}</div>
