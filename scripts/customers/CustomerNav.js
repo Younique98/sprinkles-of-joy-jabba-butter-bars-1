@@ -42,6 +42,8 @@ eventHub.addEventListener("click", event => {
       case "pastOrders":
         customEvent = new CustomEvent("showPastOrders")
         break;
+
+      
     }
     eventHub.dispatchEvent(customEvent)
   }
