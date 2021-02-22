@@ -12,7 +12,7 @@ export const ReviewForm = () => {
 
 export const ReviewFormRender = () => {
   if (!authHelper.isUserLoggedIn()) {
-   contentTarget.innerHTML `
+   contentTarget.innerHTML = `
       <h3>Please leave a review</h3>
       <form>
         <fieldset>
@@ -35,6 +35,6 @@ eventHub.addEventListener("click", clickEvent => {
           Invoke the function that performs the delete operation.
       */
       deleteReview(id)
-      debugger
+      // debugger
     }
   })
