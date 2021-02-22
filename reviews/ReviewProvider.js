@@ -1,6 +1,6 @@
 import {bakeryAPI} from "../scripts/Settings.js"
 
-const eventHub = document.querySelector(".container")
+const eventHub = document.querySelector("#container")
 
 let reviews = []
 
@@ -41,3 +41,4 @@ export const saveReview = review => {
   
     eventHub.dispatchEvent(ReviewStateChangedEvent)
   }
+

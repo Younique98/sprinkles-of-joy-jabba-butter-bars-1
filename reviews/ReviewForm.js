@@ -16,7 +16,7 @@ export const reviewForm = () => {
 const render = (productsArray) => {
     
     contentTarget.innerHTML = `
-    <h2>reviews</h2>
+    <h2>Please leave a review</h2>
     <form action="" class="reviewForm">
         <fieldset>
             <label for="review-productId">Review: </label>
@@ -26,15 +26,18 @@ const render = (productsArray) => {
             </select>
         </fieldset>
         <fieldset>
-        <label id="review-rating" for="rating">Please chose a rating</label>
-        <option value ="1">1</option>
-        <option value ="2">2</option>
-        <option value ="3">3</option>
-        <option value ="4">4</option>
-        <option value ="5">5</option>
+        <label id="review-rating" for="rating">Please choose a rating</label>
+        <select name="reviews" id="productReviews">
+        
+        <option id = "rating" value ="1">1</option>
+        <option id = "rating" value ="2">2</option>
+        <option id = "rating" value ="3">3</option>
+        <option id = "rating" value ="4">4</option>
+        <option id = "rating" value ="5">5</option>
+        </select>
         </fieldset>
         <fieldset>
-            <label for="review-text">review: </label>
+            <label for="review-text">Please leave a review: </label>
             <input type="text" id="review-text" name="review-text">
         </fieldset>
         <button id="savereview">Save review</button>
@@ -49,7 +52,7 @@ eventHub.addEventListener("click", clickEvent => {
         clickEvent.preventDefault()
         const productId = document.getElementById("review-productId").value
 
-        const rating = document.getElementById("review-rating").value
+        const rating = document.getElementById("rating").value
         const text = document.getElementById("review-text").value
        
         const newReview = {
@@ -59,6 +62,6 @@ eventHub.addEventListener("click", clickEvent => {
             "text": text
         }
         saveReview(newReview)
-        debugger
+       
     }
 })
