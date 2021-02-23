@@ -18,7 +18,7 @@ export const saveReview = review => {
   }
   
   export const deleteReview = reviewId => {
-    return fetch(`${bakeryAPI.baseURL}/productReviews`, {
+    return fetch(`${bakeryAPI.baseURL}/productReviews/${reviewId}`, {
       method: "DELETE"
     })
       .then(getReviews)
