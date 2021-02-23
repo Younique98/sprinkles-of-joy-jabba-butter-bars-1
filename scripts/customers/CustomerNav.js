@@ -1,8 +1,10 @@
 import { authHelper } from "../auth/authHelper.js"
 import { getCustomer } from "../customers/CustomerProvider.js"
+import { OrderList } from "../orders/OrderList.js"
 
 const eventHub = document.querySelector("#container")
 const userNav = document.querySelector(".userNav")
+const contentTarget = document.querySelector(".userOrders")
 
 export const CustomerNav = () => {
   if (authHelper.isUserLoggedIn()) {
@@ -49,3 +51,4 @@ eventHub.addEventListener("click", event => {
     eventHub.dispatchEvent(customEvent)
   }
 })
+

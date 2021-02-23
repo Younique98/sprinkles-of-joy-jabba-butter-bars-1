@@ -21,7 +21,7 @@ export const OrderList = () => {
 
 const render = () => {
   const ordersHtmlRepresentation = customerOrders.map(order => Order(order)).join("")
-
+debugger
   contentContainer.innerHTML = `
   <div id="orders__modal" class="modal--parent">
         <div class="modal--content">
@@ -37,6 +37,7 @@ const render = () => {
 }
 
 eventHub.addEventListener("showOrderHistory", () => {
+  debugger
   OrderList()
 })
 
@@ -49,3 +50,9 @@ eventHub.addEventListener("click", event => {
 const closeModal = () => {
   contentContainer.innerHTML = ""
 }
+
+eventHub.addEventListener("showPastOrders", event => {
+  if (contentContainer.innerHTML !== "userNav--pastOrders") {
+    OrderList()
+  }
+})
